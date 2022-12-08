@@ -6,7 +6,7 @@ import (
 )
 
 func TestHelloWorld(t *testing.T) {
-	d := New()
-	d.Read(".")
+	d := New("./")
+	d.Read()
 	fmt.Println(d.Json())
 }
