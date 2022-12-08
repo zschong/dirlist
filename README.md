@@ -1,4 +1,5 @@
-```
+# DirList.go
+```go
 package dirlist
 
 import (
