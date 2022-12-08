@@ -21,15 +21,18 @@ type DirList struct {
 	List []*FileInfo
 }
 
-func New() *DirList {
+func New(path string) *DirList {
 	return &DirList{
+		Path: path,
 		List: make([]*FileInfo, 0),
 	}
 }
 
-func (d *DirList) Read(path string) []*FileInfo {
-	d.Path = path
-	dlist, err := os.ReadDir(path)
+func (d *DirList) Read() []*FileInfo {
+	if len(d.Path) == 0 {
+		return nil
+	}
+	dlist, err := os.ReadDir(d.Path)
 	if err != nil {
 		return nil
 	}
